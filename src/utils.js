@@ -1,5 +1,6 @@
 import axios from "axios";
 import {BASE_API_URL} from "./const";
+import {format} from "date-fns";
 
 export const extend = (a, b) => {
     return Object.assign({}, a, b);
@@ -24,4 +25,9 @@ export const loadStories = async () => {
     } catch (error) {
         console.log('Error while getting list of stories.');
     }
+};
+
+
+export const getDate = (date) => {
+    return format(new Date(date * 1000), 'dd MMMM yyyy hh:mm');
 };

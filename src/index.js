@@ -15,8 +15,13 @@ const store = createStore(reducer,
         applyMiddleware(thunk)
     ));
 
-
 store.dispatch(Operations.loadStories());
+
+let timer = null;
+clearInterval(timer);
+timer = setInterval(() => {
+    store.dispatch(Operations.loadStories());
+}, 60000);
 
 ReactDOM.render(
     <Provider store={store}>

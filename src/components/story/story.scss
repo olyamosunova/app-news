@@ -1,0 +1,34 @@
+.story {
+  padding: 25px 0;
+}
+
+.story__return {
+  margin: 20px 0;
+}
+
+.story__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.story__header {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  max-width: 30%;
+
+  & > * {
+    margin: 5px 0;
+  }
+}
+
+.story__title {
+  max-width: 60%;
+  margin: 0 0 50px;
+}
+
+.story__author {
+  margin: 0;
+}
