@@ -1,6 +1,7 @@
 import axios from "axios";
 import {BASE_API_URL} from "./const";
 import {format} from "date-fns";
+import {ActionCreator} from "./reducer/reducer";
 
 export const extend = (a, b) => {
     return Object.assign({}, a, b);
@@ -27,6 +28,23 @@ export const loadStories = async () => {
     }
 };
 
+export const loadComment = async (id) => {
+    try {
+        const comment = await axios.get(`${BASE_API_URL}/item/${id}.json`);
+        return comment.data;
+    } catch (error) {
+        console.log('Error while getting a comment.');
+    }
+};
+
+export const loadComments = async (commentIds) => {
+    try {
+        const comments = await Promise.all(commentIds.slice(0, 100).map(loadComment));
+        return comments;
+    } catch (error) {
+        console.log('Error while getting list of comments.');
+    }
+}
 
 export const getDate = (date) => {
     return format(new Date(date * 1000), 'dd MMMM yyyy hh:mm');

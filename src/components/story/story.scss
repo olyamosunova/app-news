@@ -29,6 +29,14 @@
   margin: 0 0 50px;
 }
 
+.story__date {
+  color: #777;
+}
+
 .story__author {
   margin: 0;
+
+  span {
+    font-weight: 700;
+  }
 }
